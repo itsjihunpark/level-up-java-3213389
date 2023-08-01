@@ -36,18 +36,50 @@ public class App {
          * 
          * return hasNumber && hasLowercaseLetter && hasUppecaseLetter;
          */
-        //regex pattern matching implementation
-        return password.length() >=6 
-            && password.matches(".*\\d.*")
-            && password.matches(".*[A-Z].*")
-            && password.matches(".*[a-z].*");
-        }
+        // regex pattern matching implementation
+        return password.length() >= 6
+                && password.matches(".*\\d.*")
+                && password.matches(".*[A-Z].*")
+                && password.matches(".*[a-z].*");
+    }
 
-    public static void main(String[] args) {
+    public static void runPasswordComplexityTest() {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter a password: ");
         String userPassword = s.nextLine();
         System.out.println("Is the password complex? " + isPasswordComplex(userPassword));
+    }
 
+    public static void playDoubleOrNothing() {
+        DoubleOrNothing game = new DoubleOrNothing();
+        game.playGame();
+    }
+
+    public static double calculateWaterBill(double gallonUsage) {
+        double baseCharge = 18.84;
+        double extraCharge = 3.90;
+        double numberOfGallonsInCCF = 748;
+        double includedGallons = 2 * numberOfGallonsInCCF;
+        if (gallonUsage <= includedGallons) {
+            return baseCharge;
+        } else {
+            double extraGallonsUsed = gallonUsage - includedGallons;
+            double extraAmountOwed = Math.ceil(extraGallonsUsed / numberOfGallonsInCCF) * 3.9;
+            return baseCharge + extraAmountOwed;
+        }
+    }
+
+    public static void rundCalculateWaterBill() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many gallons of water did you use this month");
+        double usage = scanner.nextDouble();
+        System.out.println("You water bill is " + calculateWaterBill(usage));
+        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        // runPasswordComplexityTest();
+        // playDoubleOrNothing();
+        rundCalculateWaterBill();
     }
 }
