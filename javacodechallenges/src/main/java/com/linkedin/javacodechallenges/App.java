@@ -5,6 +5,9 @@ package com.linkedin.javacodechallenges;
  *
  */
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 
 public class App {
     public static boolean isEven(int n) {
@@ -82,10 +85,32 @@ public class App {
         System.out.println(p1.introduction());
     }
 
+    public static LocalDate hundredDaysFromNow(LocalDate today) {
+        Period hundredDays = Period.ofDays(100);
+        return today.plus(hundredDays);
+
+        /**
+         * Instead of returning LocalDate object, we could returned
+         * void and simply have it print out a hundred days from now
+         * 
+         * However, that would make it much harder to test
+         * Its easier to Unit Test, if the functions you wrote
+         * returns a value.
+         * This allows you to write assert statement to confirm the 
+         * appropriate output
+         */
+    }
+
+    public static void runHundredDaysFromNow() {
+        LocalDate today = LocalDate.now(ZoneId.of("Europe/London"));
+        System.out.println("100 days from now is... " + hundredDaysFromNow(today));
+    }
+
     public static void main(String[] args) {
         // runPasswordComplexityTest();
         // playDoubleOrNothing();
         // runCalculateWaterBill();
-        modelPerson();
+        // modelPerson();
+        runHundredDaysFromNow();
     }
 }
