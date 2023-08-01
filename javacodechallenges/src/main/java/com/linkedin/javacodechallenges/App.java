@@ -69,7 +69,7 @@ public class App {
         }
     }
 
-    public static void rundCalculateWaterBill() {
+    public static void runCalculateWaterBill() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("How many gallons of water did you use this month");
         double usage = scanner.nextDouble();
@@ -77,9 +77,15 @@ public class App {
         scanner.close();
     }
 
+    public static void modelPerson() {
+        Person p1 = new Person("Jihun", "Park", 19);
+        System.out.println(p1.introduction());
+    }
+
     public static void main(String[] args) {
         // runPasswordComplexityTest();
         // playDoubleOrNothing();
-        rundCalculateWaterBill();
+        // runCalculateWaterBill();
+        modelPerson();
     }
 }
