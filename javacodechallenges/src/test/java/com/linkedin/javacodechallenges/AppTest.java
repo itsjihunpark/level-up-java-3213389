@@ -1,6 +1,7 @@
 package com.linkedin.javacodechallenges;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
@@ -36,17 +37,20 @@ public class AppTest {
     }
 
     @Test
-    public void isPasswordComplex_True()
-    {
+    public void isPasswordComplex_True() {
         assertTrue(App.isPasswordComplex("abC123"));
         assertTrue(App.isPasswordComplex("CBs123"));
     }
 
     @Test
-    public void isPasswordComplex_False()
-    {
+    public void isPasswordComplex_False() {
         assertFalse(App.isPasswordComplex("abc123"));
         assertFalse(App.isPasswordComplex("sss123"));
         assertFalse(App.isPasswordComplex("123454"));
+    }
+
+    @Test
+    public void calculateWaterBill() {
+        assertEquals(22.74, App.calculateWaterBill(1800), 0);
     }
 }
